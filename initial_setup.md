@@ -76,3 +76,7 @@ sudo chmod -R u=rw /var/lib/radarr
 sudo chmod -R g=rw /var/lib/radarr
 ls -la /var/lib | grep radarr
 ```
+Change the setting in radarr permissions to 774 and click yes to set permissions 
+settings - media management - show advanced - permissions
+744
+cmhmod group = media
