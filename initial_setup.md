@@ -26,6 +26,11 @@ set all files and dirs with read write for group
 Add users for each of the services you will be usung:
 
 sudo useradd -m /var/lib/radarr -s /usr/sbin/nologin radarr
+use this one
+
+to do 
+-change radarr home directory, delete old
+-
 
 create the media group
 
@@ -33,7 +38,7 @@ create the media group
 sudo addgroup media
 cat /etc/group | grep media
 ```
-Change group ownership of the files in the media drive recursivley
+Change group ownership of the files in the media drive recursivley (must change the owner and then change permissions)
 ```
 sudo chown -R :media /mnt/media
 ls -la /mnt/media
@@ -41,6 +46,9 @@ ls -la /mnt/media
 Give the group RW access (do not change the owber of the file) to the mounted media drive and sub directories:
 ```
 sudo chmod -R g+rw /mnt/media
+
+3DO INSTEAD
+sudo chmod -R 774 /mnt/media
 ls -la /mnt/media
 ```
 
