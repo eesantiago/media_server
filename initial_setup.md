@@ -1,3 +1,5 @@
+## ensuer that all services place files in the media drive with the permission 774, the group must be able to read write and execute (watch)
+
 ### Partitioning External Hardrive larger than 2TB 
 
 sudo lsblk
