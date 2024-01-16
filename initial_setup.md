@@ -14,7 +14,8 @@ Copyinbg from another disk
 
 dd if of bs=64K status=progress
 
-
+# add a user to the group
+sudo usermod -aG media debian-transmission
 
 Add group with permissions to read_write to the media drive
 
