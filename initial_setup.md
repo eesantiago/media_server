@@ -1,5 +1,5 @@
 ## ensuer that all services place files in the media drive with the permission 774, the group must be able to read write and execute (watch)
-
+- ensure when moving to a new radarr instance the MEdiaCover files are copied over, this is not done automatically when restoring from backup
 ### Partitioning External Hardrive larger than 2TB 
 
 sudo lsblk
