@@ -108,3 +108,8 @@ Change the setting in radarr permissions to 774 and click yes to set permissions
 settings - media management - show advanced - permissions
 744
 cmhmod group = media
+
+
+jackett 
+transmission
+lidarr
