@@ -1,4 +1,4 @@
-# Plex Media Server with Sonarr, Radarr, and Lidarr
+# Plex Media Server with Automation
 
 Helpful links:
 * [Servarr Wiki](https://wiki.servarr.com/)
