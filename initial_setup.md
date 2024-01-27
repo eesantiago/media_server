@@ -4,11 +4,9 @@ Helpful links:
 * [Servarr Wiki](https://wiki.servarr.com/)
 * [Creating a Partition Greater than 2TB](https://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html)
 
-## ensuer that all services place files in the media drive with the permission 774, the group must be able to read write and execute (watch)
-- ensure when moving to a new radarr instance the MEdiaCover files are copied over, this is not done automatically when restoring from backup
-### Partitioning External Hardrive larger than 2TB 
+<br/>
 
-## Mounting and Partioning a new Harddrive
+## Partitioning and Mounting a new Harddrive
 
 After the disk is plugged in, find the name:
 ```
@@ -30,20 +28,32 @@ Create a partition:
 ```
 sudo parted /dev/sda
 
+# complete the following in parted
 mklabel gpt
+unit TB
+mkpart primary 0.00TB 8.00TB
+print
+quit
 ```
+Format the file system:
+```
+sudo mkfs.ext4 /dev/sda1
+```
+Mount the new drive:
+```
+mkdir /mnt/media
+mount /dev/sda1 /mnt/media
 
-* be sure to restart the services when you make changes to permissions of the accounts that run the services (i.e restart radarr after making permission changes for the radarr user)
-* 
-
-
-
-make it ext4
-mkfs.ext4 /dev/sda1
-
-Copyinbg from another disk 
-
+# verify
+df -H
+```
+If copying over from another disk:
+```
 dd if of bs=64K status=progress
+```
+* be sure to restart the services when you make changes to permissions of the accounts that run the services (i.e restart radarr after making permission changes for the radarr user)
+
+
 
 # add a user to the group
 sudo usermod -aG media debian-transmission
@@ -108,6 +118,10 @@ Change the setting in radarr permissions to 774 and click yes to set permissions
 settings - media management - show advanced - permissions
 744
 cmhmod group = media
+
+## ensuer that all services place files in the media drive with the permission 774, the group must be able to read write and execute (watch)
+- ensure when moving to a new radarr instance the MEdiaCover files are copied over, this is not done automatically when restoring from backup
+### Partitioning External Hardrive larger than 2TB 
 
 
 jackett 
