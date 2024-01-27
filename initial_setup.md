@@ -51,8 +51,10 @@ If copying over from another disk:
 ```
 dd if of bs=64K status=progress
 ```
-* be sure to restart the services when you make changes to permissions of the accounts that run the services (i.e restart radarr after making permission changes for the radarr user)
 
+<br/>
+
+## Users, Groups, and Permissions
 
 
 # add a user to the group
@@ -127,3 +129,4 @@ cmhmod group = media
 jackett 
 transmission
 lidarr
+* be sure to restart the services when you make changes to permissions of the accounts that run the services (i.e restart radarr after making permission changes for the radarr user)
