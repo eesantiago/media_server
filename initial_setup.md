@@ -1,16 +1,42 @@
 # Plex Media Server with Sonarr, Radarr, and Lidarr
 
+Helpful links:
+* [Servarr Wiki](https://wiki.servarr.com/)
+* [Creating a Partition Greater than 2TB](https://www.cyberciti.biz/tips/fdisk-unable-to-create-partition-greater-2tb.html)
+
 ## ensuer that all services place files in the media drive with the permission 774, the group must be able to read write and execute (watch)
 - ensure when moving to a new radarr instance the MEdiaCover files are copied over, this is not done automatically when restoring from backup
 ### Partitioning External Hardrive larger than 2TB 
 
+## Mounting and Partioning a new Harddrive
+
+After the disk is plugged in, find the name:
+```
 sudo lsblk
+
+sda               8:0    0   7.3T  0 disk
+└─sda1            8:1    0   7.3T  0 part  /mnt/media
+
+# verify
+fdisk -l /dev/sda
+```
+Verify filesystem type:
+```
+df -Th
+
+/dev/mapper/data-root ext4      431G   31G  379G   8% /
+```
+Create a partition:
+```
+sudo parted /dev/sda
+
+mklabel gpt
+```
 
 * be sure to restart the services when you make changes to permissions of the accounts that run the services (i.e restart radarr after making permission changes for the radarr user)
 * 
 
-Verify Filesystem Type
-df -Th
+
 
 make it ext4
 mkfs.ext4 /dev/sda1
