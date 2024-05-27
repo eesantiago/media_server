@@ -70,6 +70,10 @@ set all files and dirs with read write for group
 Add users for each of the services you will be usung:
 
 sudo useradd -m /var/lib/radarr -s /usr/sbin/nologin radarr
+
+# if the direcotry already exists
+sudo useradd --home /var/lib/radarr -s /usr/sbin/nologin radarr
+
 use this one
 
 to do 
