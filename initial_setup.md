@@ -142,3 +142,13 @@ sudo chown -R lidarr:media /opt/Lidarr
 
 ```
 change the permission in the app settings to 775 for new files so plex can execute them
+
+
+### Remote Access 
+
+Teamviewer
+sudo systemctl enable teamviewerd.service
+
+Guacamole
+
+Wireguard
